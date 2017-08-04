@@ -58,6 +58,5 @@ function createResponse(result) {
 }
 
 module.exports.allowedRequestFields = ["firstName", "lastName"];
-
 module.exports.validateRequest = validateRequest;
 module.exports.handleRequest = handleRequest;
