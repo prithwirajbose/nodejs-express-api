@@ -30,15 +30,13 @@ var indexOf = function(obj, key) {
     }
 };
 
-module.exports.resolveValidationErrorMessage = function(msgcode, paramName, httpStatus) {
-    var errCd = 4000999;
+module.exports.resolveValidationErrorMessage = function(msgcode, paramName) {
+    var errCd = 1999;
     var errMsg = !_.isNil(msgcode) ? msgcode :
         (!_.isNil(paramName) ? paramName : 'Request parameter') +
         ' is invalid';
     if (_.has(globalErrorMessages.validationErrors, msgcode)) {
-        errCd = _.parseInt(httpStatus +
-            '' +
-            indexOf(globalErrorMessages, 'validationErrors') +
+        errCd = _.parseInt('1' +
             _.padStart(indexOf(globalErrorMessages.validationErrors,
                 msgcode), 3, '0'), 10);
         errMsg = _.get(globalErrorMessages.validationErrors, msgcode);
@@ -50,17 +48,17 @@ module.exports.resolveValidationErrorMessage = function(msgcode, paramName, http
 
     return {
         "errorCode": errCd,
-        "errorMessage": errMsg
+        "errType": "RequestError",
+        "errorMessage": errMsg,
+        "httpStatus": 400
     };
 };
 
-module.exports.resolveAppErrorMessage = function(errMsgCd, httpStatus) {
-    var errCd = 5001999;
+module.exports.resolveAppErrorMessage = function(errMsgCd) {
+    var errCd = 2999;
     var errMsg = !_.isNil(errMsgCd) ? errMsgCd : 'A service error has occured';
     if (_.has(globalErrorMessages.appErrors, errMsgCd)) {
-        errCd = _.parseInt(httpStatus +
-            '' +
-            indexOf(globalErrorMessages, 'appErrors') +
+        errCd = _.parseInt('2' +
             _.padStart(indexOf(globalErrorMessages.appErrors,
                 errMsgCd), 3, '0'), 10);
         errMsg = _.get(globalErrorMessages.appErrors, errMsgCd);
@@ -68,7 +66,9 @@ module.exports.resolveAppErrorMessage = function(errMsgCd, httpStatus) {
 
     return {
         "errorCode": errCd,
-        "errorMessage": errMsg
+        "errType": "ApplicationError",
+        "errorMessage": errMsg,
+        "httpStatus": 500
     };
 };
 
