@@ -12,7 +12,7 @@ routes = require('./routes'),
 
 //Other Libraries
 var errorHandling = require('./libs/error-handler.js');
-var customValidators = require('./config/custom-validators.js');
+var customValidators = require('./libs/custom-validators.js');
 
 //Create Express App
 var app = express();

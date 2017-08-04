@@ -1,5 +1,5 @@
 var expressValidator = require('express-validator');
-var _ = require('../libs/lodash.min.js');
+var _ = require('./lodash.min.js');
 
 var injectCustomValidators = function(app) {
     app.use(expressValidator({

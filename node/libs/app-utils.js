@@ -1,6 +1,6 @@
 var _ = require('./lodash.min.js'),
     fastXmlParser = require('fast-xml-parser');
-var globalErrorMessages = require("./app_configurations/error-messages.json");
+var globalErrorMessages = require("../config/app_configurations/error-messages.json");
 
 
 var xmlParserOptions = {
