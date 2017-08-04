@@ -1,0 +1,23 @@
+{
+    "name": "nodejs-expressjs-starter",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha --timeout 10000"
+    },
+    "author": "",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "cors": "^2.8.3",
+        "express-validator": "^3.2.0",
+        "request": "^2.81.0",
+        "fast-xml-parser": "^2.6.0"
+    },
+    "devDependencies": {
+        "express": "^4.15.3",
+        "chai": "^3.5.0",
+        "chai-http": "^2.0.1",
+        "mocha": "^3.4.2"
+    },
+    "description": ""
+}

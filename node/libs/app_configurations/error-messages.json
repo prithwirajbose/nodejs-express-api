@@ -1,0 +1,11 @@
+{
+    "validationErrors": {
+        "field-required": "{{paramName}} is required",
+        "field-isstring": "{{paramName}} must be a string",
+        "field-lengthlimit": "Length of {{paramName}} doesn't satisfy the criteria."
+    },
+    "appErrors": {
+        "parser-error": "The request is not a valid JSON",
+        "other-error": "An error has occured. Please try again."
+    }
+}
